@@ -23,9 +23,9 @@ $(document).ready(function () {
    //change the color to be something other than blue or black
    //change the text size to 110% of normal
    // (note that there is already a class defined for the area where your name should go)
-   $('h1 > em.myName').click(function () {
-      $(this).text('Aoyan Sarkar');
-      $(this).css({'font-variant': 'small-caps', 'color': 'green', 'font-size': '110%'});
+   $('h1').click(function () {
+      $(this).find('em.myName').text('Aoyan Sarkar');
+      $(this).find('em.myName').css({'font-variant': 'small-caps', 'color': 'green', 'font-size': '110%'});
    })
 
 
