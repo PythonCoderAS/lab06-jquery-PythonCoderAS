@@ -65,6 +65,9 @@ $(document).ready(function () {
 
 
    // Problem 5 (10 pts): lookup another jquery method and use this code on the "Toggle Text"
+   $('#toggleText').click(function () {
+      $('#showHideBlock p').toggle(400);
+   });
    // link to show/hide the text:
 
    // Problems: 60 pts
