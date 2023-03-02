@@ -5,8 +5,8 @@
 // is fully loaded:
 $(document).ready(function () {
 
-   alert("The DOM is now loaded and can be manipulated.");
-   alert("The instructions for this lab are in the lab6.js file.");
+   // alert("The DOM is now loaded and can be manipulated.");
+   // alert("The instructions for this lab are in the lab6.js file.");
 
    // example event handler:
    $('#labButton').click(function () {
@@ -23,6 +23,10 @@ $(document).ready(function () {
    //change the color to be something other than blue or black
    //change the text size to 110% of normal
    // (note that there is already a class defined for the area where your name should go)
+   $('h1 > em.myName').click(function () {
+      $(this).text('Aoyan Sarkar');
+      $(this).css({'font-variant': 'small-caps', 'color': 'green', 'font-size': '110%'});
+   })
 
 
 
@@ -30,15 +34,33 @@ $(document).ready(function () {
    // Problem 2 (10 pts): Make the "lorem ipsum" paragraphs
    //   vanish over a 4/10 sec duration when a user clicks "Hide text";
    //   make it appear with a 2 second duration when a user clicks "Show text":
+   $('#hideText').click(function () {
+      $('#showHideBlock p').hide(400);
+   });
+   $('#showText').click(function () {
+      $('#showHideBlock p').show(2000);
+   });
 
 
    // Problem 3 (10 pts): When a normal list item is clicked, make it turn red using addClass.
    //            When a red list item is clicked change it back (you need to look up the appropriate jQuery method to do this)
    // (Note that there already is a css style named ".red" in lab6.css)
+   function doLiClick() {
+      if ($(this).hasClass('red')) {
+         $(this).removeClass('red');
+      } else {
+         $(this).addClass('red');
+      }
+   }
+   $('li').click(doLiClick);
 
 
    // Problem 4 (10 pts): When a user clicks on the "Add a list item" button, add a new list item to the end of the list.
    // Problem 4b (10 pts) - what happens when you click on the new li?  Why? (Explain in your readme file)
+   $("#AddListItem").click(function () {
+      $("ul#labList").append("<li>New List Item</li>");
+      $("ul#labList li:last").click(doLiClick);
+   });
 
 
 
